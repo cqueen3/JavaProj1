@@ -40,7 +40,7 @@ public class CTList {
 		this.CT_list = s;
 	}
 	
-	public void Add_ind(Infected_ind RHS) {
+	public void Add(Infected_ind RHS) {
 		CT_list.add(RHS);
 	}
 	
