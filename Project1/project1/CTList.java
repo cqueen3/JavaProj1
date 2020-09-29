@@ -15,7 +15,7 @@ import java.util.TreeSet;
 import java.util.Vector;
 
 public class CTList {
-		// Manages file I/O of the project
+
 	
 	private String fileName;
 	private ArrayList<Person> CT_list = new ArrayList<Person>();
@@ -100,7 +100,7 @@ public class CTList {
 				iter.next().AddContact(s);
 				break;
 			}
-			iter.next();
+			iter.next(); //There is probably an easier way, but this is the only way I could get it to work.
 			}
 	}
 	

@@ -3,7 +3,7 @@ package project1;
 import java.util.*;
 public class Person {
 
-	private String schoolID;
+	private String schoolID; // School ID, also main method of searching through information
 	private String fn; // First name
 	private String ln; // Last name
 	private Boolean lives_campus; // Does the user live on campus?
@@ -23,7 +23,7 @@ public class Person {
 		close_contacts.clear();
 	}
 	
-	public Person(String sid, String fn, String ln, Boolean lc, Boolean iq, String qsd, Vector<String> cc) {
+	public Person(String sid, String fn, String ln, Boolean lc, Boolean iq, String qsd, Vector<String> cc) { // Person constructor with all the necessary variables
 		this.setSchoolID(sid);
 		this.setFn(fn);
 		this.setLn(ln);
@@ -59,7 +59,7 @@ public class Person {
 		this.ln = LN;
 	}
 	
-	public boolean Contains(String FN, String LN) {
+	public boolean Contains(String FN, String LN) { // Alternate method to compare Persons, with first and last name
 		
 		if (fn.equals(FN) == true)
 		{

@@ -1,3 +1,4 @@
+// Corey Queen, 8 AM Java, Project 1
 package project1;
 
 import java.util.Scanner;
@@ -65,10 +66,8 @@ public static void main(String[] args) {
 	newList.ToString();
 	System.out.println("\n \n");
 	
-	/* NOT WORKING */
 	newList.addContact("1839302", "Jason Bourne 445-442-1832"); // Should add contact Jason Bourne to Terry Jones
 	newList.ToString();
-	//Infected_ind newt = newList.return_val("11223344");
 	
 	
 	Person find_p_test = newList.find_person("1839302"); // Test to see if the new assigned variable has the properties of the Person of same ID.
@@ -77,19 +76,7 @@ public static void main(String[] args) {
 	find_p_test = newList.find_person("849231"); // Test to see if the new assigned variable has the properties of the Person of same ID.
 	System.out.println("Should read :Jonny Mater: " + find_p_test.getFn() + " " + find_p_test.getLn());
 	
-	//newList.writeFile();
+	newList.writeFile(); // This writes a file to the text file above, also ends program
 }
-	
-	//Test reading a file Check
-	//Test reading a file to make sure all the info that was input was saved to the text file Check
-	//Test adding an infected person to the list Check
-	//Test removing a person from the file Check
-	//Test reading to see if that worked
-	//Test queuing through the list to see if the list can find information from that file ?
-	//Test adding close contact to specific tested individual 
-	//Test changing data from every different data type
-	
-	
-	
 	
 }
