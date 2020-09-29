@@ -4,73 +4,89 @@ import java.util.Scanner;
 import java.util.Vector;
 
 public class ProjectTester {
-	
+
 public static void main(String[] args) {
 	Scanner scan = new Scanner(System.in);
-	CTList newList = new CTList("./Project1/Infected_List.txt");
+	CTList newList = new CTList("./Project1/Infected_List.txt"); // Reads file, uploads any existing contacts
 	
-	// This is a test to input data to see if it saves to the data file
-//	System.out.print("How many People do you want to enter into the list?");
-//	int number = scan.nextInt();
-//	
-	Infected_ind test = new Infected_ind();
-//	for (int i = 0; i < number; i++)
-//	{
-//		System.out.println("Enter ID: ");
-//		String ID = scan.next();
-//		test.setSchoolID(ID);
-//		System.out.println("Enter First Name: ");
-//		String FN = scan.next();
-//		test.setFn(FN);
-//		System.out.println("Enter Last Name: ");
-//		String LN = scan.next();
-//		test.setLn(LN);
-//		System.out.println("Does live on campus? (True or False: ");
-//		String loc = scan.next();
-//		if (loc.equals("T"))
-//			test.setIn_quarantine(true);
-//		else if (loc.equals("F"))
-//			test.setIn_quarantine(false);
-//		System.out.println("Is in quarantine currently? (T or F): ");
-//		String inq = scan.next();
-//		if (inq.equals("T"))
-//			test.setIn_quarantine(true);
-//		else if (inq.equals("F"))
-//			test.setIn_quarantine(false);
-//		System.out.println("Enter quarantine start date (N/A if not in quar): ");
-//		//fix = scan.next();
-//		String qsd = scan.next();
-//		test.setQuarantine_start_date(qsd);
-//		System.out.println("How many close contacts do you wish to add?: ");
-//		
-//	}
+	Person test = new Person(); // Created to add first person to list
 	
 	test.setFn("Terry");
 	test.setLn("Jones");
 	test.setSchoolID("1839302");
 	test.setLives_campus(false);
 	test.setIn_quarantine(false);
-	test.setQuarantine_start_date("September 11");
+	test.setQuarantine_sd("September 11");
 	Vector<String> conts = new Vector<String>();
-	conts.add("Mark Smith 870-401-4040");
-	conts.add("Mark Doderer 501-222-5583");
+	conts.add("Jimmy Fallon 870-401-4040");
+	conts.add("Seth Massen 501-222-5583");
 	test.setClose_contacts(conts);
 	
+	newList.Add(test); // Add function adds new contacts to the lis
+	
+	newList.ToString(); // First line, should print only Terry Jones Upon first run. Multiple runs will print entire list
+	System.out.println("\n \n");
+	
+	Person best = new Person();
+	best.setSchoolID("849231");
+	best.setFn("Jonny");
+	best.setLn("Mater");
+	best.setLives_campus(true);
+	best.setIn_quarantine(true);
+	best.setQuarantine_sd("N/A");
+	Vector<String> conts2 = new Vector<String>();
+	conts2.add("Juan Soto 870-421-4400");
+	conts2.add("Milk man 501-321-3358");
+	best.setClose_contacts(conts2);
+	
+	newList.Add(best);
+	
+	Person jest = new Person();
+	jest.setSchoolID("11223344");
+	jest.setFn("Bailey");
+	jest.setLn("Smith");
+	jest.setLives_campus(false);
+	jest.setIn_quarantine(true);
+	jest.setQuarantine_sd("Tuesday 11 September");
+	Vector<String> conts3 = new Vector<String>();
+	conts3.add("Bake Jakeson 564-212-8493");
+	conts3.add("Bread Fella 891-383-3449");
+	jest.setClose_contacts(conts3);
+	
+	newList.Add(jest);
+	newList.ToString(); // Now list should contain all 3 contacts that have been manually added. 
+	System.out.println("\n \n");
+	
+	System.out.println("\nBefore removal: " + newList.does_contain("11223344")); // A boolean to test whether or not a person with that ID exists
+	
+	newList.remove("11223344"); // The person to be removed should be Bailey Smith, as their ID is the input string
+	
+	System.out.println("\nAfter removal: " + newList.does_contain("11223344")); 
+	newList.ToString();
+	System.out.println("\n \n");
+	
+	/* NOT WORKING */
+	newList.addContact("1839302", "Jason Bourne 445-442-1832"); // Should add contact Jason Bourne to Terry Jones
+	newList.ToString();
+	//Infected_ind newt = newList.return_val("11223344");
 	
 	
+	Person find_p_test = newList.find_person("1839302"); // Test to see if the new assigned variable has the properties of the Person of same ID.
+	System.out.println("Should read :Terry Jones: " + find_p_test.getFn() + " " + find_p_test.getLn());
 	
+	find_p_test = newList.find_person("849231"); // Test to see if the new assigned variable has the properties of the Person of same ID.
+	System.out.println("Should read :Jonny Mater: " + find_p_test.getFn() + " " + find_p_test.getLn());
 	
+	//newList.writeFile();
 }
 	
-	//Test reading a file
-	//Test adding a sample person to that file
-	//Test reading a file to make sure all the info that was input was saved to the text file
-	//Test adding an infected person to the list
-	//Test reading the file to see if that worked
-	//Test removing a person from the file
+	//Test reading a file Check
+	//Test reading a file to make sure all the info that was input was saved to the text file Check
+	//Test adding an infected person to the list Check
+	//Test removing a person from the file Check
 	//Test reading to see if that worked
-	//Test queuing through the list to see if the list can find information from that file
-	//Test adding close contact to specific tested individual
+	//Test queuing through the list to see if the list can find information from that file ?
+	//Test adding close contact to specific tested individual 
 	//Test changing data from every different data type
 	
 	

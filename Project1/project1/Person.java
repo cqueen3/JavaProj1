@@ -1,7 +1,7 @@
 package project1;
 
 import java.util.*;
-public class Infected_ind {
+public class Person {
 
 	private String schoolID;
 	private String fn; // First name
@@ -14,7 +14,7 @@ public class Infected_ind {
 	
 	// SchoolID, First name, Last name, lives on campus, in_quarantine, quarantine_start_date, close contacts list
 	//NTC constructors
-	public Infected_ind(){
+	public Person(){
 		fn = "Not set";
 		ln = "Not set";
 		schoolID = "N/A";
@@ -23,13 +23,13 @@ public class Infected_ind {
 		close_contacts.clear();
 	}
 	
-	public Infected_ind(String sid, String fn, String ln, Boolean lc, Boolean iq, String qsd, Vector<String> cc) {
+	public Person(String sid, String fn, String ln, Boolean lc, Boolean iq, String qsd, Vector<String> cc) {
 		this.setSchoolID(sid);
 		this.setFn(fn);
 		this.setLn(ln);
 		this.setLives_campus(lc);
 		this.setIn_quarantine(iq);
-		this.setQuarantine_start_date(qsd);
+		this.setQuarantine_sd(qsd);
 		this.setClose_contacts(cc);
 	}
 	
@@ -47,16 +47,16 @@ public class Infected_ind {
 	public String getFn() {
 		return fn;
 	}
-	public void setFn(String fn) {
-		this.fn = fn;
+	public void setFn(String FN) {
+		this.fn = FN;
 	}
 	
 	
 	public String getLn() {
-		return ln;
+		return this.ln;
 	}
-	public void setLn(String ln) {
-		this.ln = ln;
+	public void setLn(String LN) {
+		this.ln = LN;
 	}
 	
 	public boolean Contains(String FN, String LN) {
@@ -73,26 +73,26 @@ public class Infected_ind {
 	
 	
 	public Boolean getLives_campus() {
-		return lives_campus;
+		return this.lives_campus;
 	}
-	public void setLives_campus(Boolean lives_campus) {
-		this.lives_campus = lives_campus;
+	public void setLives_campus(Boolean RHS) {
+		lives_campus = RHS;
 	}
 	
 	
 	public Boolean getIn_quarantine() {
 		return in_quarantine;
 	}
-	public void setIn_quarantine(Boolean in_quarantine) {
-		this.in_quarantine = in_quarantine;
+	public void setIn_quarantine(Boolean RHS) {
+		this.in_quarantine = RHS;
 	}
 	
 	
-	public String getQuarantine_start_date() {
+	public String getQuarantine_sd() {
 		return quarantine_start_date;
 	}
-	public void setQuarantine_start_date(String quarantine_start_date) {
-		this.quarantine_start_date = quarantine_start_date;
+	public void setQuarantine_sd(String RHS) {
+		this.quarantine_start_date = RHS;
 	}
 	
 	
@@ -104,7 +104,7 @@ public class Infected_ind {
 	}
 	
 	public void AddContact(String s) {
-		close_contacts.add(s);
+		this.close_contacts.add(s);
 	}
 
 }
